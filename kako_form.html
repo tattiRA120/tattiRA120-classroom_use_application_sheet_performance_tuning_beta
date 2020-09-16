@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-store">
+    <meta http-equiv="expires" content="0" />
+    <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery UI -->
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style type="text/css">
+        .my-frame{
+            position:relative;
+            width:670px;
+            height:510px;
+            display: block;
+            margin: auto;
+        }
+        .my-frame iframe{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            display: block;
+            margin: auto;
+        }
+    </style>
+  <title>教室利用申請フォーム</title>
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">教室利用申請フォーム</a>
+    </nav>
+    <div class="py-4">
+        <div class="align-midde">
+            <div class="container">
+                <div class="py-3"></div>
+                <form class="mb-5" method="post" action="https://script.google.com/a/nnn.ed.jp/macros/s/AKfycbzUDMu8e6U29RuxzGbJnxUB3D_wYGngpqs5F25HsKgPOxo2tIUi/exec">
+                    <div class="form-group col-sm">
+                        <label for="name">名前</label>
+                        <input type="text" class="form-control" id="name" name="name" required="required">
+                        <small id="NameHelp" class="form-text text-muted">代表者名を入力してください</small>
+                    </div>
+                    <div class="form-group col-sm">
+                        <div class="my-frame">
+                            <iframe class="form-control" id="iframe1" name="iframe1" align="margin" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT805VLJMHX9iZvPDCqZiZZAWPgFFyeyCkO6dz2nF6XpN7eyF58jBBHRTS1SD67yjDY_fnXnxOGKN6F/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=A2:H14"></iframe>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="text1">利用する日</label>
+                        <input type="text" name="when" class="form-control" id="datepicker" placeholder="年 / 月 / 日" required="required">
+                        <small id="Helpmsg1" class="form-text text-muted">予約可能期間は今週より2週間です</small>
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="FormControlSelect2">利用目的</label>
+                        <select class="form-control" name="purpose" id="FormControlSelect2" onchange="createMenu(this.value);selectboxChange2()" required="required">
+                            <option disabled selected>--------------</option>
+                            <option value="Game">ゲーム</option>
+                            <option value="Music">楽器練習</option>
+                            <option value="Other">その他</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm">
+                        <div class="form-text col-sm-8" id="OtherText">
+                            <input type="text" name="othertext" class="form-control" id="text2">
+                            <small id="Helpmsg3" class="form-text text-muted">その他の場合はこちらに入力してください</small>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="FormControlSelect1">利用する教室</label>
+                        <select class="form-control" name="classroom" id="FormControlSelect1" onchange="selectboxChange();" required="required" disabled>
+                            <option disabled selected>--------------</option>
+                        </select>
+                        <div class="form-check" id="ClassroomAll">
+                            <input class="form-check-input" type="checkbox" name="alltrue" value="true" id="Check1">
+                            <label class="form-check-label" for="Check1">教室全体の予約・利用を許可する</label>
+                            <small id="Helpmsg2" class="form-text text-muted">モニター以外を使用しない・教室の分割利用を許可する場合はチェックを入れてください。</small>
+                        </div>
+                    </div>
+                    <div class="py-3"></div>
+                    <button type="submit" class="btn btn-primary" onchange="alertSet();">送信</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<hr>
+    <script type="text/javascript">
+        
+        document.getElementById("ClassroomAll").style.display ="none";
+        document.getElementById("OtherText").style.display ="none";
+        
+        function selectboxChange() {
+            var value　= document.getElementById("FormControlSelect1").value;
+            var ClassroomAll = document.getElementById("ClassroomAll");
+            
+            if(value === "B教室モニター" || value === "C教室モニター"){
+                ClassroomAll.style.display ="block";
+            }else{
+                ClassroomAll.style.display ="none";
+            }
+        }
+        
+        function selectboxChange2() {
+            var value　= document.getElementById("FormControlSelect2").value;
+            var OtherText = document.getElementById("OtherText");
+            var reset = ClassroomAll.style.display ="none";
+            
+            if(value === "Other"){
+                OtherText.style.display ="block";
+            }else{
+                OtherText.style.display ="none";
+            }
+        }
+        
+        
+        const classroomList =
+              {
+                  "Game": ["A教室モニター", "B教室モニター", "C教室モニター"],
+                  "Music": ["B教室モニター", "B教室全体", "C教室モニター", "C教室全体"],
+                  "Other": ["A教室モニター", "B教室モニター", "B教室全体", "C教室モニター", "C教室全体"]
+              };
+        
+        
+        function createMenu(selectGenre){
+            let classroom = document.getElementById('FormControlSelect1');
+            classroom.disabled = false;
+            classroom.innerHTML = '';
+            let option = document.createElement('option');
+            option.innerHTML = '--------------';
+            option.defaultSelected = true;
+            option.disabled = true;
+            classroom.appendChild(option);
+            
+            classroomList[selectGenre].forEach( menu => {
+                let option = document.createElement('option');
+                option.innerHTML = menu;
+                classroom.appendChild(option);  
+            });
+        }
+        
+    </script>
+    <script>
+        
+        $(function() {
+            $.datepicker.setDefaults($.datepicker.regional["ja"]);
+            var date = new Date();
+            var dayOfWeek = date.getDay();
+            if(dayOfWeek === 0){
+               var maxDateSet = "+5d"
+            }else if(dayOfWeek === 1){
+                var maxDateSet = "+11d"
+            }else if(dayOfWeek === 2){
+                var maxDateSet = "+10d"
+            }else if(dayOfWeek === 3){
+                var maxDateSet = "+9d"
+            }else if(dayOfWeek === 4){
+                var maxDateSet = "+8d"
+            }else if(dayOfWeek === 5){
+                var maxDateSet = "+7d"
+            }else if(dayOfWeek === 6){
+                var maxDateSet = "+6d"
+            }
+            $("#datepicker").datepicker({
+                minDate: 0,
+                maxDate: maxDateSet,
+                showOtherMonths: true, 
+                selectOtherMonths: true,
+            });
+            $("#datepicker").datepicker('option','beforeShowDay',function(date){
+                var ret = [(date.getDay() != 0 && date.getDay() != 6)];
+                return ret;
+            });
+        });
+    </script>
+</body>
+</html>
