@@ -120,6 +120,35 @@ function doPost(postdata){
       //教室が既に予約済み
       if(RsvDATE == getDay && !(cell.isBlank())){
         //予約済みの教室ごとのHTML
+        if(stringClassroom === "Apple教室モニターA(前)"){
+          const htmlOutput_from_RAMA = HtmlService.createTemplateFromFile("form-RESE-AMoniA").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+          return htmlOutput_from_RAMA
+        }
+        
+        if(stringClassroom === "Apple教室モニターB(後)"){
+          const htmlOutput_from_RAMB = HtmlService.createTemplateFromFile("form-RESE-AMoniB").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+          return htmlOutput_from_RAMB
+        }
+        
+        if(stringClassroom === "Boeing教室全体"){
+          const htmlOutput_from_RBA = HtmlService.createTemplateFromFile("form-RESE-BAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+          return htmlOutput_from_RBA
+        }
+        
+        if(stringClassroom === "Boeing教室モニターのみ"){
+          const htmlOutput_from_RBM = HtmlService.createTemplateFromFile("form-RESE-BMoni").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+          return htmlOutput_from_RBM
+        } 
+        
+        if(stringClassroom === "Cisco教室全体"){
+          const htmlOutput_from_RCA = HtmlService.createTemplateFromFile("form-RESE-CAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+          return htmlOutput_from_RCA
+        }
+        
+        if(stringClassroom === "Cisco教室モニターのみ"){
+          const htmlOutput_from_RCM = HtmlService.createTemplateFromFile("form-RESE-CMoni").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+          return htmlOutput_from_RCM
+        }
       }
       
       //日付(RsvDATE)==予約日(getDay) && cellの値=isBlank
