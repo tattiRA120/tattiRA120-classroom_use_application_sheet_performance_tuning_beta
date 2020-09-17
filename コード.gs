@@ -123,31 +123,43 @@ function doPost(postdata){
         if(stringClassroom === "Apple教室モニターA(前)"){
           const htmlOutput_from_RAMA = HtmlService.createTemplateFromFile("form-RESE-AMoniA").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
           return htmlOutput_from_RAMA
+          
+          break
         }
         
         if(stringClassroom === "Apple教室モニターB(後)"){
           const htmlOutput_from_RAMB = HtmlService.createTemplateFromFile("form-RESE-AMoniB").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
           return htmlOutput_from_RAMB
+          
+          break
         }
         
         if(stringClassroom === "Boeing教室全体"){
           const htmlOutput_from_RBA = HtmlService.createTemplateFromFile("form-RESE-BAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
           return htmlOutput_from_RBA
+          
+          break
         }
         
         if(stringClassroom === "Boeing教室モニターのみ"){
           const htmlOutput_from_RBM = HtmlService.createTemplateFromFile("form-RESE-BMoni").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
           return htmlOutput_from_RBM
+          
+          break
         } 
         
         if(stringClassroom === "Cisco教室全体"){
           const htmlOutput_from_RCA = HtmlService.createTemplateFromFile("form-RESE-CAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
           return htmlOutput_from_RCA
+          
+          break
         }
         
         if(stringClassroom === "Cisco教室モニターのみ"){
           const htmlOutput_from_RCM = HtmlService.createTemplateFromFile("form-RESE-CMoni").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
           return htmlOutput_from_RCM
+          
+          break
         }
       }
       
@@ -164,6 +176,7 @@ function doPost(postdata){
             Answer.appendRow([time,getEmail,stringName,When,stringClassroom,stringPurposeSet,stringPurposeOthertext]);//フォーム回答のログ書き込み
             
             return htmlOutput_from_COMPL;
+            break
           }
           
           //2-Boeing教室全体 or Cisco教室全体の場合
@@ -176,6 +189,8 @@ function doPost(postdata){
             if(!(checkBC_Moni.isBlank())){
               //Boeing or Cisco教室モニターが既に予約済みの通知HTML
               console.log("-B・Cモニターが予約済み-");
+              
+              break
             }
             
             //Boeing or Cisco教室モニターが空き
@@ -188,6 +203,7 @@ function doPost(postdata){
               checkBC_Moni.setBackground(BG).setFontColor(FC).setValue("←←←←←←←\n予約済み");
               
               return htmlOutput_from_COMPL;
+              break
             }
           }
           
@@ -203,11 +219,13 @@ function doPost(postdata){
               if(stringClassroom === "Boeing教室モニターのみ"){
                 const htmlOutput_from_SBA = HtmlService.createTemplateFromFile("form-SameBAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
                 return htmlOutput_from_SBA
+                break
               }
               
               if(stringClassroom === "Cisco教室モニターのみ"){
                 const htmlOutput_from_SCA = HtmlService.createTemplateFromFile("form-SameCAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
                 return htmlOutput_from_SCA
+                break
               }
             }
             
@@ -224,6 +242,7 @@ function doPost(postdata){
               }
               
               return htmlOutput_from_COMPL;
+              break
             }
           }
           
@@ -241,6 +260,7 @@ function doPost(postdata){
             Answer.appendRow([time,getEmail,stringName,When,stringClassroom,stringPurposeSet]);//フォーム回答のログ書き込み
             
             return htmlOutput_from_COMPL;
+            break
           }
           
           //2-Boeing教室全体 or Cisco教室全体の場合
@@ -253,6 +273,8 @@ function doPost(postdata){
             if(!(checkBC_Moni.isBlank())){
               //Boeing or Cisco教室モニターが既に予約済みの通知HTML
               console.log("-B・Cモニターが予約済み-");
+              
+              break
             }
             
             //Boeing or Cisco教室モニターが空き
@@ -265,6 +287,7 @@ function doPost(postdata){
               checkBC_Moni.setBackground(BG).setFontColor(FC).setValue("←←←←←←←\n予約済み");
               
               return htmlOutput_from_COMPL;
+              break
             }
           }
           
@@ -277,6 +300,8 @@ function doPost(postdata){
             if(!(checkBC_all.isBlank())){
               //Boeing or Cisco教室全体が既に予約済みの通知HTML
               console.log("-B・C教室全体が予約済み-");
+              
+              break
             }
             
             //Boeing or Cisco教室全体が空き
@@ -292,6 +317,7 @@ function doPost(postdata){
               }
               
               return htmlOutput_from_COMPL;
+              break
             }
           }
           break loop;
