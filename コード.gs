@@ -189,8 +189,17 @@ function doPost(postdata){
             if(!(checkBC_Moni.isBlank())){
               //Boeing or Cisco教室モニターが既に予約済みの通知HTML
               console.log("-B・Cモニターが予約済み-");
+              if(stringClassroom === "Boeing教室モニターのみ"){
+                const htmlOutput_from_SBA = HtmlService.createTemplateFromFile("form-SameBAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+                return htmlOutput_from_SBA
+                break
+              }
               
-              break
+              if(stringClassroom === "Cisco教室モニターのみ"){
+                const htmlOutput_from_SCA = HtmlService.createTemplateFromFile("form-SameCAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+                return htmlOutput_from_SCA
+                break
+              }
             }
             
             //Boeing or Cisco教室モニターが空き
@@ -216,17 +225,8 @@ function doPost(postdata){
             if(!(checkBC_all.isBlank())){
               //Boeing or Cisco教室全体が既に予約済みの通知HTML
               console.log("-B・C教室全体が予約済み-");
-              if(stringClassroom === "Boeing教室モニターのみ"){
-                const htmlOutput_from_SBA = HtmlService.createTemplateFromFile("form-SameBAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
-                return htmlOutput_from_SBA
-                break
-              }
               
-              if(stringClassroom === "Cisco教室モニターのみ"){
-                const htmlOutput_from_SCA = HtmlService.createTemplateFromFile("form-SameCAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
-                return htmlOutput_from_SCA
-                break
-              }
+              break
             }
             
             //Boeing or Cisco教室全体が空き
@@ -273,8 +273,17 @@ function doPost(postdata){
             if(!(checkBC_Moni.isBlank())){
               //Boeing or Cisco教室モニターが既に予約済みの通知HTML
               console.log("-B・Cモニターが予約済み-");
+              if(stringClassroom === "Boeing教室モニターのみ"){
+                const htmlOutput_from_SBA = HtmlService.createTemplateFromFile("form-SameBAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+                return htmlOutput_from_SBA
+                break
+              }
               
-              break
+              if(stringClassroom === "Cisco教室モニターのみ"){
+                const htmlOutput_from_SCA = HtmlService.createTemplateFromFile("form-SameCAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+                return htmlOutput_from_SCA
+                break
+              }
             }
             
             //Boeing or Cisco教室モニターが空き
@@ -300,17 +309,8 @@ function doPost(postdata){
             if(!(checkBC_all.isBlank())){
               //Boeing or Cisco教室全体が既に予約済みの通知HTML
               console.log("-B・C教室全体が予約済み-");
-              if(stringClassroom === "Boeing教室モニターのみ"){
-                const htmlOutput_from_SBA = HtmlService.createTemplateFromFile("form-SameBAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
-                return htmlOutput_from_SBA
-                break
-              }
               
-              if(stringClassroom === "Cisco教室モニターのみ"){
-                const htmlOutput_from_SCA = HtmlService.createTemplateFromFile("form-SameCAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
-                return htmlOutput_from_SCA
-                break
-              }
+              break
             }
             
             //Boeing or Cisco教室全体が空き
