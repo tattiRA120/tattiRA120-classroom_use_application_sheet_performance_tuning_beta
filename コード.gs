@@ -189,13 +189,13 @@ function doPost(postdata){
             if(!(checkBC_Moni.isBlank())){
               //Boeing or Cisco教室モニターが既に予約済みの通知HTML
               console.log("-B・Cモニターが予約済み-");
-              if(stringClassroom === "Boeing教室モニターのみ"){
+              if(stringClassroom === "Boeing教室全体"){
                 const htmlOutput_from_SBA = HtmlService.createTemplateFromFile("form-SameBAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
                 return htmlOutput_from_SBA
                 break
               }
               
-              if(stringClassroom === "Cisco教室モニターのみ"){
+              if(stringClassroom === "Cisco教室全体"){
                 const htmlOutput_from_SCA = HtmlService.createTemplateFromFile("form-SameCAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
                 return htmlOutput_from_SCA
                 break
@@ -273,13 +273,13 @@ function doPost(postdata){
             if(!(checkBC_Moni.isBlank())){
               //Boeing or Cisco教室モニターが既に予約済みの通知HTML
               console.log("-B・Cモニターが予約済み-");
-              if(stringClassroom === "Boeing教室モニターのみ"){
+              if(stringClassroom === "Boeing教室全体"){
                 const htmlOutput_from_SBA = HtmlService.createTemplateFromFile("form-SameBAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
                 return htmlOutput_from_SBA
                 break
               }
               
-              if(stringClassroom === "Cisco教室モニターのみ"){
+              if(stringClassroom === "Cisco教室全体"){
                 const htmlOutput_from_SCA = HtmlService.createTemplateFromFile("form-SameCAll").evaluate().setTitle('エラー:教室利用申請フォーム').setFaviconUrl("https://drive.google.com/uc?id=1AwUkQKd51JH6eKWWwCPnYuONa8mqQ14X&.png").setSandboxMode(HtmlService.SandboxMode.IFRAME).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
                 return htmlOutput_from_SCA
                 break
