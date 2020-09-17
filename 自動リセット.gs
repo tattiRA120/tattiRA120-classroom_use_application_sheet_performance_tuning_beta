@@ -4,8 +4,8 @@ function AutoChange(){
   var Log = sheet.getSheetByName('ログ用');
   var BG = "#c9daf8"
   var FC = "#111111"
-  var FirstWeekRng = Main.getRange("C4:G8");/* "予約状況"シートの"C4:G8"のセル範囲を取得 */
-  var SecondWeekRng = Main.getRange("C9:G13");/* "予約状況"シートの"C9:G13"のセル範囲を取得 */
+  var FirstWeekRng = Main.getRange("C4:H8");/* "予約状況"シートの"C4:H8"のセル範囲を取得 */
+  var SecondWeekRng = Main.getRange("C9:H13");/* "予約状況"シートの"C9:H13"のセル範囲を取得 */
   var cellDate = Main.getRange("B4").getValue();/* "予約状況"シートの"B4"セルを取得 */
   
   /* ログを保存 */
