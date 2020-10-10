@@ -18,9 +18,11 @@
     <style type="text/css">
         .my-frame{
             position:relative;
-            width:100%;
-            height:0%;
-            padding-top:545px;
+            width:765px;
+            height:575px;
+            display: block;
+            margin: auto;
+            align-items: center;
         }
         .my-frame iframe{
             position:absolute;
@@ -28,6 +30,8 @@
             left:0;
             width:100%;
             height:100%;
+            display: block;
+            margin: auto;
         }
     </style>
   <title>教室利用申請フォーム</title>
@@ -36,67 +40,55 @@
     <nav class="navbar navbar-light navbar-dark bg-dark">
         <a class="navbar-brand" href="#">教室利用申請フォーム</a>
     </nav>
-    <div class="col-11 col-sm-11 col-md-11 col-lg-10 col-xl-8 container">
-        <div class="py-4">
-            <div class="align-midde">
-                <div class="container">
+    <div class="py-4">
+        <div class="align-midde">
+            <div class="container">
+                <div class="py-3"></div>
+                <form class="mb-5" method="post" action="https://script.google.com/a/nnn.ed.jp/macros/s/AKfycbzUDMu8e6U29RuxzGbJnxUB3D_wYGngpqs5F25HsKgPOxo2tIUi/exec">
+                    <div class="form-group col-sm">
+                        <label for="name">名前</label>
+                        <input type="text" class="form-control" id="name" name="name" required="required">
+                        <small id="NameHelp" class="form-text text-muted">代表者名を入力してください</small>
+                    </div>
+                    <div class="form-group col-sm">
+                        <div class="my-frame">
+                            <iframe class="form-control" id="iframe1" name="iframe1" align="middle" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRT9iViU3YaiLLCMBUDFeLdv2SPbo1eEdzZg5ThQAu2jApyRNsBk6FLXtJ4uZRj5QOlLJ9d50Uzwdad/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=A2:I14"></iframe>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="text1">利用する日</label>
+                        <input type="text" name="when" class="form-control" id="datepicker" placeholder="年 / 月 / 日" required="required">
+                        <small id="Helpmsg1" class="form-text text-muted">予約可能期間は今週より2週間です</small>
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="FormControlSelect2">利用目的</label>
+                        <select class="form-control" name="purpose" id="FormControlSelect2" onchange="createMenu(this.value);selectboxChange2()" required="required">
+                            <option disabled selected>--------------</option>
+                            <option value="Game">ゲーム</option>
+                            <option value="MTG">イベントMTG</option>
+                            <option value="Other">その他</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-sm">
+                        <div class="form-text col-sm-8" id="OtherText">
+                            <input type="text" name="othertext" class="form-control" id="text2">
+                            <small id="Helpmsg3" class="form-text text-muted">その他の場合はこちらに入力してください</small>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm">
+                        <label for="FormControlSelect1">利用する教室</label>
+                        <select class="form-control" name="classroom" id="FormControlSelect1" onchange="selectboxChange();" required="required" disabled>
+                            <option disabled selected>--------------</option>
+                        </select>
+                        <div class="form-check" id="ClassroomAll">
+                            <input class="form-check-input" type="checkbox" name="alltrue" value="true" id="Check1">
+                            <label class="form-check-label" for="Check1">教室全体の予約・利用を許可する</label>
+                            <small id="Helpmsg2" class="form-text text-muted">モニター以外を使用しない・教室の分割利用を許可する場合はチェックを入れてください。</small>
+                        </div>
+                    </div>
                     <div class="py-3"></div>
-                    <form class="mb-5" method="post" action="https://script.google.com/a/nnn.ed.jp/macros/s/AKfycbzUDMu8e6U29RuxzGbJnxUB3D_wYGngpqs5F25HsKgPOxo2tIUi/exec">
-                        <div class="form-group">
-                            <label for="name">名前</label>
-                            <input type="text" class="form-control" id="name" name="name" required="required">
-                            <small id="NameHelp" class="form-text text-muted">代表者名を入力してください</small>
-                        </div>
-                        <div class="form-group">
-                            <div class="my-frame">
-                                <div class="table-responsive">
-                                    <iframe class="form-control" id="iframe1" name="iframe1" align="middle" frameborder="0" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRT9iViU3YaiLLCMBUDFeLdv2SPbo1eEdzZg5ThQAu2jApyRNsBk6FLXtJ4uZRj5QOlLJ9d50Uzwdad/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;headers=false&amp;chrome=false&amp;range=A2:I14"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="text1">利用する日</label>
-                            <input type="text" name="when" class="form-control" id="datepicker" placeholder="年 / 月 / 日" required="required">
-                            <small id="Helpmsg1" class="form-text text-muted">予約可能期間は今週より2週間です</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="FormControlSelect2">利用目的</label>
-                            <select class="form-control" name="purpose" id="FormControlSelect2" onchange="createMenu(this.value);selectboxChange2()" required="required">
-                                <option disabled selected>--------------</option>
-                                <option value="Game">ゲーム</option>
-                                <option value="MTG">イベントMTG</option>
-                                <option value="Other">その他</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-text col-sm-8" id="OtherText">
-                                <input type="text" name="othertext" class="form-control" id="text2">
-                                <small id="Helpmsg3" class="form-text text-muted">その他の場合はこちらに入力してください</small>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="FormControlSelect1">利用する教室</label>
-                            <select class="form-control" name="classroom" id="FormControlSelect1" onchange="selectboxChange();" required="required" disabled>
-                                <option disabled selected>--------------</option>
-                            </select>
-                            <div class="form-check" id="ClassroomAll">
-                                <input class="form-check-input" type="checkbox" name="alltrue" value="true" id="Check1">
-                                <label class="form-check-label" for="Check1">教室全体の予約・利用を許可する</label>
-                                <small id="Helpmsg2" class="form-text text-muted">モニター以外を使用しない・教室の分割利用を許可する場合はチェックを入れてください。</small>
-                            </div>
-                        </div>
-                        <div class="py-3"></div>
-                        <div class="form-Submit" id="Submit">
-                            <button type="submit" class="btn btn-primary" onclick="submitStart();">送信</button>
-                        </div>
-                        <div class="form-Submit" id="Submit-Loading">
-                            <button class="btn btn-primary" type="button" disabled>
-                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                Loading...
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    <button type="submit" class="btn btn-primary" onchange="alertSet();">送信</button>
+                </form>
             </div>
         </div>
     </div>
@@ -105,8 +97,6 @@
         
         document.getElementById("ClassroomAll").style.display ="none";
         document.getElementById("OtherText").style.display ="none";
-        document.getElementById("Submit-Loading").style.display = "none";
-        
         
         function selectboxChange() {
             var value　= document.getElementById("FormControlSelect1").value;
@@ -157,9 +147,8 @@
             });
         }
         
-        var submitStart = function () {
-            document.getElementById("Submit").style.display = "none";
-            document.getElementById("Submit-Loading").style.display = "block";
+        function alertSet(){
+           alert("予約状況を確認中です。\nOKボタンを押してください");
         }
         
     </script>
